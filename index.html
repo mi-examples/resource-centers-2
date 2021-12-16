@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/pt/resource-centers-2/style.css">
+
+<div class="generic-wrapper p-main-color-bg">
+    <div class="generic-page">
+        <div class="generic-page__header">
+            <div class="generic-page__header-content">
+                <div class="generic-page__title">[Main Title]</div>
+                <div class="generic-page__description">[Main Description]</div>
+            </div>
+            <div class="generic-page__header-logo">
+                <img src="[Logo]" alt="Logo">
+            </div>
+        </div>
+
+        <div class="page-container" id="blocks-container">
+            <a target="_blank" href="[First Box Url]" class="page-container__one">
+                <div class="page-container__icon">
+                    <img src="[First Box Icon]">
+                </div>
+                <div class="page-container__title p-main-color">[First Box Title]</div>
+                <div class="page-container__description">[First Box Description]</div>
+            </a>
+
+            <div class="page-container__list-content">
+                <div class="page-container__icon">
+                    <img src="[List Box Icon]">
+                </div>
+                <div class="page-container__title p-main-color">[List Box Title]</div>
+                <ul class="page-container__list" id="list-box">
+
+                </ul>
+            </div>
+            <a target="_blank" href="[Second Box Url]" class="page-container__two">
+                <div class="page-container__icon">
+                    <img src="[Second Box Icon]">
+                </div>
+                <div class="page-container__title p-main-color">[Second Box Title]</div>
+                <div class="page-container__description">[Second Box Description]</div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    //Append Additional Box
+    function addBlocks(blocks, container) {
+        for (let i = 0; i < blocks.length; i++) {
+            let block = $(`
+                        <a target="_blank" href="${blocks[i]['href']}" class="page-container__additional">
+                            <div class="page-container__icon">
+                                <img src="${blocks[i]['img']}" alt="icon ${blocks[i]}">
+                            </div>
+                            <div class="page-container__title p-main-color">${blocks[i]['title']}</div>
+                            <div class="page-container__description p-main-color">${blocks[i]['description']}</div>
+                        </a>
+                    `);
+
+            $(container).append(block);
+        }
+    };
+
+    addBlocks([Additional Blocks], '#blocks-container');
+
+    //Append List
+    function buildList(list, container) {
+        for (let i = 0; i < list.length; i++) {
+            let $li = $(`<li class="p-main-color"></li>`),
+                $a = $(`<span class="arrow-right p-main-color-bg""></span><a target="_blank" href="${list[i]['url']}" class="p-main-color">${list[i]['listItem']}</a>`);
+
+            $li.append($($a));
+            $(container).append($($li));
+        }
+    };
+
+    $(document).ready(function() {
+        buildList([List Box], '#list-box');
+    });
+</script>
