@@ -12,7 +12,7 @@ Some text
 3. Dashboard Title Description
 4. Linked tiles with configurable icon, image, title, text
 5. Tile with configurable icon, title, links
-6. Tiles with configurable icon, title, text
+6. Linked tiles with configurable icon, title, text
 
 
 ## Installation
